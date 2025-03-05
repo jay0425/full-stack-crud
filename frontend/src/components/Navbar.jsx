@@ -1,4 +1,4 @@
-export default function Navbar() {
+export default function NavBar({ onOPen }) {
   return (
     <>
       <div className="navbar bg-base-100 shadow-sm">
@@ -9,7 +9,9 @@ export default function Navbar() {
           <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <a className="btn btn-primary" onClick={onOPen}>
+            Add Client
+          </a>
         </div>
       </div>
     </>
