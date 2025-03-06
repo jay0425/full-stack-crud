@@ -1,4 +1,4 @@
-export default function ModalForm(isOpen, onClose, mode, OnSubmit) {
+export default function ModalForm({ isOpen, onClose, mode, OnSubmit }) {
   return (
     <>
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -11,7 +11,7 @@ export default function ModalForm(isOpen, onClose, mode, OnSubmit) {
               ✕
             </button>
 
-            <button className="btn btn-success">{mode === 'edit' ? 'Save Changes' : 'Add Client '}</button>
+            <button className="btn btn-success">{mode === 'edit' ? 'Save Changes' : 'Add Client'}</button>
           </form>
         </div>
       </dialog>
