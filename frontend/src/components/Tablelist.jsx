@@ -57,12 +57,12 @@ export default function TableList({ onOpen }) {
                   </button>
                 </td>
                 <td>
-                  <button onClick={onOpen} className="btn btn-secondary">
+                  <button onClick={onOpen} className="btn btn-secondary rounded-md">
                     Update
                   </button>
                 </td>
                 <td>
-                  <button className="btn btn-accent">Delete</button>
+                  <button className="btn btn-accent rounded-md">Delete</button>
                 </td>
               </tr>
             ))}

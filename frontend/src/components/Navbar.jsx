@@ -6,10 +6,10 @@ export default function NavBar({ onOpen }) {
           <a className="btn btn-ghost text-xl">daisyUI</a>
         </div>
         <div className="navbar-center flex gap-2">
-          <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+          <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto p-4" />
         </div>
         <div className="navbar-end">
-          <button className="btn btn-primary" onClick={onOpen}>
+          <button className="btn btn-primary rounded-md" onClick={onOpen}>
             Add Client
           </button>
         </div>
