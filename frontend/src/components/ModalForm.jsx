@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function ModalForm({ isOpen, onClose, mode, OnSubmit }) {
+export default function ModalForm({ isOpen, onClose, mode, OnSubmit, clientData }) {
   const [rate, setRate] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -11,14 +11,35 @@ export default function ModalForm({ isOpen, onClose, mode, OnSubmit }) {
     setStatus(e.target.value === 'Active');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const clientData = { name, email, job, rate: Number(rate), isactive: status };
+      await OnSubmit(clientData);
+    } catch (err) {
+      console.error('Error adding client', err);
+    }
     onClose();
   };
 
+  useEffect(() => {
+    if (mode === 'edit' && clientData) {
+      setName(clientData.name);
+      setEmail(clientData.email);
+      setJob(clientData.job);
+      setRate(clientData.rate);
+      setStatus(clientData.isActive);
+    } else {
+      setName('');
+      setEmail('');
+      setJob('');
+      setRate('');
+      setStatus(false);
+    }
+  }, [mode, clientData]);
+
   return (
     <>
-      {/* You can open the modal using document.getElementById('ID').showModal() method */}
       <dialog id="my_modal_3" className="modal" open={isOpen}>
         <div className="modal-box">
           <h3 className="font-bold text-lg py-4 mb-2">{mode === 'edit' ? 'Edit Client' : 'Client Details'}</h3>
